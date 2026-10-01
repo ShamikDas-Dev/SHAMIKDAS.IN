@@ -27,9 +27,12 @@ export default function App() {
   const { open, openPalette, closePalette } = useCommandPalette();
   const active = useActiveSection(SECTION_IDS);
 
-  const scrollTo = useCallback((id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-  }, []);
+const scrollTo = useCallback((id) => {
+  document.getElementById(id)?.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+  });
+}, []);
 
   const handleBootComplete = useCallback(() => {
     setBooted(true);
